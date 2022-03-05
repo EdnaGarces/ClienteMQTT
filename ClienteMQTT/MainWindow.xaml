@@ -1,0 +1,62 @@
+﻿<Window x:Class="ClienteMQTT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClienteMQTT"
+        mc:Ignorable="d"
+        Title="Cliente MQTT" Height="450" Width="340" Background="White" WindowStyle="ThreeDBorderWindow">
+    <Grid Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="Servidor: "/>
+            <TextBox Width="140" x:Name="txbServidor" Height="27" TextAlignment="Left"/>
+            <Label Content="Puerto:"/>
+            <TextBox Width="48" x:Name="txbPuerto" Height="27"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,5,0,5" HorizontalAlignment="Center">
+            <Label Content="Cliente"/>
+            <TextBox Width="140"  Margin="14,0,20,0" x:Name="txbCliente" Height="27"/>
+            <Button Content=" Conectar " x:Name="btnConectar" Click="btnConectar_Click" Width="78" BorderBrush="White" Foreground="Black" Height="27">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1DB2C9"/>
+                        <GradientStop Color="#FF28F47B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel x:Name="stkSuscripcion" IsEnabled="False" Grid.Row="2" Orientation="Horizontal" Margin="0,5,0,5" HorizontalAlignment="Center">
+            <Label Content="Tópico: "/>
+            <TextBox Width="140" Margin="11,0,20,0" x:Name="txbTopico" Height="27"/>
+            <Button Content=" Suscribirse " x:Name="btnSuscribir" Click="btnSuscribir_Click" BorderBrush="White" Foreground="#FF020202" Width="78" Height="27">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1DB2C9"/>
+                        <GradientStop Color="#FF28F47B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel  x:Name="stkMensaje" IsEnabled="False" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="Mensaje: "/>
+            <TextBox Width="140" Margin="2,0,20,0" x:Name="txbMensaje" Height="27"/>
+            <Button Content=" Enviar " x:Name="btnEnviar" Click="btnEnviar_Click" Width="78" BorderBrush="White" Foreground="#FF020202" Height="27">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1DB2C9"/>
+                        <GradientStop Color="#FF28F47B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <ListView Grid.Row="4" Margin="10,10,10,0" x:Name="lstMensajes" Height="254" VerticalAlignment="Top" SelectionChanged="lstMensajes_SelectionChanged"/>
+        <Grid HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
